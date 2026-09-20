@@ -46,7 +46,7 @@ jobs:
 
       - name: Run Spring Boot tests
         working-directory: backend
-        run: mvn test
+        run: ./mvnw test
 
 
   docker-build:
@@ -67,12 +67,14 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./backend
+          file: ./backend/dockerfile
           push: false
-          tags: :production-app-backend:latest
+          tags: library-app-backend:latest
 
       - name: Build frontend image
         uses: docker/build-push-action@v6
         with:
           context: ./frontend
+          file: ./frontend/dockerfile
           push: false
-          tags: production-app-frontend:latest
+          tags: library-app-frontend:latest
