@@ -68,11 +68,11 @@ jobs:
         with:
           context: ./backend
           push: false
-          tags: library-app-backend:latest
+          tags: :production-app-backend:latest
 
       - name: Build frontend image
         uses: docker/build-push-action@v6
         with:
           context: ./frontend
           push: false
-          tags: library-app-frontend:latest
+          tags: production-app-frontend:latest
